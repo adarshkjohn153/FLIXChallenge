@@ -1,0 +1,70 @@
+*Instructions for Data Loader to swap the permissions between the Permission Sets*
+
+
+Steps for swapping the permissions in ObjectPermission
+
+1. Open Data Loader
+2. Click Export
+3. Choose ObjectPermissions object
+4. Use the following SOQL to export data:
+
+SELECT Id, ParentId, PermissionsRead, PermissionsEdit, PermissionsCreate, PermissionsDelete, PermissionsViewAllRecords, PermissionsModifyAllRecords, SObjectType  
+FROM ObjectPermissions  
+WHERE ParentId IN ('PermissionSetId1', 'PermissionSetId2')
+
+
+Where PermissionSetId1 should be replaced by the Account Contract Permission Set and PermissionSetId2 should be replaced by Account Contract Clause Permission Set
+
+5. Export it to excel.
+6. Change the ParentIds like wherever there is parentId with PermissionSetID1 should be changed to PermissionSetId2 and wherever ParentId with permissionSetId2 should be changed to PermissionSetId1
+7.Save the excel
+
+8. Delete the existing assignments.
+
+9. Insert this new prepared excel file to the object ObjectPermission.
+
+*Steps for swapping the permissions in FieldPermission*
+
+1. Open Data Loader
+2. Click Export
+3. Choose FieldPermission object
+4. Use the following SOQL to export data:
+
+SELECT Field, Id, ParentId, PermissionsEdit, PermissionsRead, SobjectType 
+FROM FieldPermissions 
+WHERE ParentId IN ('PermissionSetId1', 'PermissionSetId2')
+
+
+Where PermissionSetId1 should be replaced by the Account Contract Permission Set id and PermissionSetId2 should be replaced by Account Contract Clause Permission Set Id
+
+5. Export it to excel.
+6. Change the ParentIds like wherever there is parentId with PermissionSetID1 should be changed to PermissionSetId2 and wherever ParentId with permissionSetId2 should be changed to PermissionSetId1
+7.Save the excel
+
+8. Delete the existing assignments.
+
+9. Insert this new prepared excel file to the object FieldPermission.
+
+
+*Steps for swapping the permissions in Permission Set Tab Setting*
+
+1. Open Data Loader
+2. Click Export
+3. Choose Permission Set Tab Setting object
+4. Use the following SOQL to export data:
+
+SELECT Field, Id, ParentId, PermissionsEdit, PermissionsRead, SobjectType, SystemModstamp, Id, Name, ParentId, Visibility 
+FROM PermissionSetTabSetting  
+WHERE ParentId IN ('PermissionSetId1', 'PermissionSetId2')
+
+
+Where PermissionSetId1 should be replaced by the Account Contract Permission Set id and PermissionSetId2 should be replaced by Account Contract Clause Permission Set Id
+
+5. Export it to excel.
+6. Change the ParentIds like wherever there is parentId with PermissionSetID1 should be changed to PermissionSetId2 and wherever ParentId with permissionSetId2 should be changed to PermissionSetId1
+7.Save the excel
+
+8. Delete the existing assignments.
+
+9. Insert this new prepared excel file to the object Permission Set Tab Setting.
+
