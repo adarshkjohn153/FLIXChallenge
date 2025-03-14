@@ -1,0 +1,10 @@
+<html>
+  <body>
+    <p>Hello {!Account.OwnerFullName},</p>
+    
+    <p>We would like to let you know that the Status of Account  <a href="https://orgfarm-a7bb06e929-dev-ed.develop.lightning.force.com/lightning/r/Account/{!CASESAFEID(Account.Id)}/view" target="_blank">{!Account.Name}</a> got changed to the new Status <strong>{!Account.fx_Status__c}</strong>.</p>
+    
+    <p>Regards,<br>
+    OrgFarm</p>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>The Account Owner will be notified via email whenever the status of Account got changed</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Notify Account Owner of Status Change</name>
+    <style>none</style>
+    <subject>Notification of Account Status Change</subject>
+    <textOnly>Hello {!Account.OwnerFullName},  We would like to let you know that the Status of Account {!Account.Id} got changed to the new Status {!Account.fx_Status__c}.   Regards OrgFarm</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

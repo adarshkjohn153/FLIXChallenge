@@ -1,0 +1,46 @@
+<template>
+    
+    <lightning-quick-action-panel title="Account Contract Clauses">
+    <div>
+       
+
+        <lightning-card title="Account Contract Clauses" icon-name="standard:contract"></lightning-card>
+
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </template>
+
+        <template if:true={error}>
+
+            <p class="slds-text-color_error">Error Loading clauses :{error}</p>
+        </template>
+
+        <template if:true={clauses.length}>
+
+            <ul class="slds-m-around_medium">
+
+                <template  for:each={clauses} for:item ="clause">
+
+                    <li key={clause.Id}>{clause.Name} -- {clause.ContractName} -- {clause.BillingCountry} --{clause.isValid}</li>
+                </template>
+            </ul>
+
+        </template>
+
+        <template if:false={clauses.length}>
+
+            <template if:false={error}>
+
+            <p class="slds-text-color_error">No Contract Clauses found for this Account</p>
+        </template>
+
+        </template>
+
+        <div class="slds-m-around_medium slds-align_absolute-center">
+            <lightning-button label="Cancel" variant="neutral" onclick={closeAction}></lightning-button>
+            <lightning-button label="Proceed" variant="brand" class="slds-m-left_small" onclick={handleProceed}></lightning-button>
+        </div>
+
+    </div>
+</lightning-quick-action-panel>
+</template>
