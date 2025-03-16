@@ -1,18 +1,46 @@
-# Salesforce DX Project: Next Steps
+#FlixChallenge
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Hereby I am explaining the tasks I have done for the 3 Flixchallenges.
 
-## How Do You Plan to Deploy Your Changes?
+##Task 1--Quick Action Development
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+--Created a new custom object "Account Contract(FX_Account_Contract__c)"
+--Created 4 custom fields associated to this Object
+      --Account(lookup relationship to the Standard Account Object)
+      --Status(FX_Status__c)
+      --Contract Start Date (	FX_Contract_Start_Date__c)
+      --Contract End Date (FX_Contract_End_Date__c)
 
-## Configure Your Salesforce DX Project
+--Created next custom object "Account Contract Clause(FX_Account_Contract_Clause__c)"
+--Created 3 custom fields associated to this Object
+      --Account Contract(Lookup relationship associated to the Account Contract Object)
+      --Billing Country(FX_Billing_Country__c)
+      --isValid(FX_IsValid__c)
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+-- Developed the Lightning Web component(fx_AccountContractClauseQuickAction) as action Type as ScreenAction
+-- Created the custom labels for displaying the different known errors.
+--Developed the associated Apex controller class( Fx_AccountContractController) and Apex controller Test class(Fx_AccountContractControllerTest)
 
-## Read All About It
+--Created the new action "Display Clauses" and added it to the account page layout.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+
+##Task 2-- Permission Sets
+
+--Created new permission Sets named "AccountContractPermission" & "Account Contract Clause Permission"
+--AccountContractPermission permission set gives permission to the Account contract object the permission "Read,Create,Edit and Delete" and given the Edit access to all the custom fields.
+--AccountContractClausePermission permission set gives permission to the Account contract Clause object the permission "Read,Create,Edit and Delete" and given the Edit access to all the custom fields.
+
+
+Instructions for swapping the permissions between the Permission Sets is added in the package notes "Instructions for Data Loader to swap the permissions.txt" file.
+
+Also written scripts via apex to swap the permissions.
+--Created the apex class "fx_SwapPermissions" for executing this and written test class "fx_SwapPermissionsTest".
+
+
+
+##Task 3-- Status notification
+
+--Created the Status(	fx_Status__c) custom field in Account and made this field as a path in the Account page layout specific for admin.
+--Created a email template "Notify Account Owner of Status Change" for designing the email template.
+--Created a email alert "Notify the Account Owner about the Status Change in Account" to send the emails to the Account Owner.
+--Created a flow "Notify the Account Owner about the Status Change" to send the email to Account Owner whenever the status value in Account get changed.
