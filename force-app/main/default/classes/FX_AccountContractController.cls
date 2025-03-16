@@ -92,10 +92,10 @@ public with sharing class FX_AccountContractController {
 
             //save a copy of the displayed information as a file that is linked to Account Contract record
 
-            List<FX_Account_Contract_Clause__c> clausesNameCollection = new List<FX_Account_Contract_Clause__c>([Select Name from FX_Account_Contract_Clause__c where Id =:clauseIds]);
+            List<FX_Account_Contract_Clause__c> clausesNameCollection = new List<FX_Account_Contract_Clause__c>([Select Name,FX_Account_Contract__r.Name,FX_Billing_Country__c,FX_IsValid__c from FX_Account_Contract_Clause__c where Id =:clauseIds]);
             for(FX_Account_Contract_Clause__c clause :clausesNameCollection)
             {
-                clauseStringCollection.add(clause.Name);
+                clauseStringCollection.add(clause.Name+'--'+clause.FX_Account_Contract__r.Name+'--'+clause.FX_Billing_Country__c+'--'+clause.FX_IsValid__c);
             }
             String clauseText = String.join(clauseStringCollection, '\n');
             ContentVersion cv = new ContentVersion(

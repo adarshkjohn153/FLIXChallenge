@@ -99,7 +99,7 @@ private class FX_AccountContractControllerTest {
         Test.stopTest();
         
         // Use an explicit wait (query again to ensure new records are committed)
-        List<FX_Account_Contract__c> contracts = [SELECT Id FROM FX_Account_Contract__c WHERE FX_Account__c = :testAccount.Id ORDER BY CreatedDate DESC LIMIT 2];
+        List<FX_Account_Contract__c> contracts = [SELECT Id FROM FX_Account_Contract__c WHERE FX_Account__c = :testAccount.Id];
 
         System.assert(contracts.size() > 1, 'New contract should be created');
         FX_Account_Contract__c createdContract = contracts[1];

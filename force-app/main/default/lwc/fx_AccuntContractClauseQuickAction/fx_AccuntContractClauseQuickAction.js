@@ -11,7 +11,7 @@ export default class FX_accountContractClauseQuickAction extends LightningElemen
         @track clauses =[];
         @track error='';
 
-        
+        //Getting the data from the apex class through the wire function
         @wire(getAccountContractClauses, {accountId:'$recordId'})
         handleContractClauses({error,data})
         
@@ -28,7 +28,7 @@ export default class FX_accountContractClauseQuickAction extends LightningElemen
                 }
                 else
                 {
-                    //if data contain the clause information, it will map to each fields
+                    //if data contain the clause information, processes an array of objects (data.data) and maps it to a new array of transformed objects, which is then assigned to this.clauses.
                 
                     this.clauses = data.data.map(clause =>({
 
