@@ -3,8 +3,10 @@
     <lightning-quick-action-panel title="Account Contract Clauses">
     <div>
        
-
+        <!--Displaying the Title Card-->
         <lightning-card title="Account Contract Clauses" icon-name="standard:contract"></lightning-card>
+
+         
 
         <template if:true={isLoading}>
             <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
@@ -15,6 +17,8 @@
             <p class="slds-text-color_error">Error Loading clauses :{error}</p>
         </template>
 
+
+        <!--If the clauses is retrieved from the Apex class it will be shown in multilines-->
         <template if:true={clauses.length}>
 
             <ul class="slds-m-around_medium">
