@@ -31,7 +31,7 @@ Hereby I am explaining the tasks I have done for the 3 Flixchallenges.
 --AccountContractClausePermission permission set gives permission to the Account contract Clause object the permission "Read,Create,Edit and Delete" and given the Edit access to all the custom fields.
 
 
-Instructions for swapping the permissions between the Permission Sets is added in the package notes "Instructions for Data Loader to swap the permissions.txt" file.
+Instructions for swapping the permissions between the Permission Sets is added in the package notes "Instructions for Data Loader to swap the permissions.txt" file is added in the scripts folder of VS code package.
 
 Also written scripts via apex to swap the permissions.
 --Created the apex class "fx_SwapPermissions" for executing this and written test class "fx_SwapPermissionsTest".
