@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    
    
     <labels>
         <fullName>fx_Account_Billing_Country_Missing</fullName>
@@ -8,6 +10,7 @@
         <shortDescription>Account Billing Country Missing</shortDescription>
         <value>Account does not have a Billing Country set.</value>
     </labels>
+
     <labels>
         <fullName>fx_Account_Contract_Clauses_Missing</fullName>
         <language>en_US</language>
